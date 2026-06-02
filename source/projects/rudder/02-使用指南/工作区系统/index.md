@@ -1,0 +1,72 @@
+---
+title: 工作区系统
+date: 2026-06-02
+type: projects
+---
+
+# 工作区系统
+
+工作区记录每个 AI session 的工作内容，实现跨 session 的上下文连续性。
+
+## 目录结构
+
+```
+.rudder/workspace/<开发者名>/
+├── index.md          # 个人索引（总 session 数、最后活跃时间）
+├── journal-1.md      # 工作日志 1（最多 2000 行/文件）
+├── journal-2.md      # 超出 2000 行自动创建下一个
+└── ...
+```
+
+## 开发者身份
+
+初始化时通过 `-u` 参数设置：
+
+```bash
+rudder init -u zhangsan
+```
+
+这会创建：
+- `.rudder/.developer` 文件（git 忽略）
+- `.rudder/workspace/zhangsan/` 目录
+
+## 工作日志
+
+每次 AI session 结束后，会自动向 journal 追加记录：
+- 做了什么
+- 修改了哪些文件
+- 遇到了什么问题
+- 学到了什么
+
+### 日志轮换
+
+单个 journal 文件最多 **2000 行**。超出后自动创建 `journal-(N+1).md`。
+
+### 如何查看日志
+
+```bash
+# 查看当前 journal
+cat .rudder/workspace/zhangsan/journal-1.md
+```
+
+## Session 记录脚本
+
+```bash
+python3 .rudder/scripts/add_session.py --title "标题" --commit "hash" --summary "摘要"
+```
+
+## 跨 Session 续上下文
+
+新会话开始时，Rudder 会：
+1. 读取最新的 journal 文件（最后 2000 行以内的内容）
+2. 注入到 AI 的 system prompt 中
+3. AI 就知道上次干了什么
+
+这就是 Rudder 解决"AI 失忆"的核心机制。
+
+## index.md
+
+每个开发者的 `index.md` 包含：
+- 总 session 数量
+- 最后活跃时间
+- 近期 session 概要
