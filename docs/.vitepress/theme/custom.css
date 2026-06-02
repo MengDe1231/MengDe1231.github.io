@@ -1,17 +1,17 @@
-/* Claude-style dark sidebar + light content theme */
+/* Claude-style warm paper theme */
 
-/* ---- Dark top nav ---- */
+/* ---- Warm top nav ---- */
 .VPNav {
-  background-color: #1a1a1a !important;
-  border-bottom: 1px solid #333 !important;
+  background-color: #f5f0e8 !important;
+  border-bottom: 1px solid #d4cfc5 !important;
 }
 
 .VPNav .title {
-  color: #fff !important;
+  color: #2c2820 !important;
 }
 
 .VPNav .nav-bar-title {
-  color: #fff !important;
+  color: #2c2820 !important;
 }
 
 .VPNavBar {
@@ -24,23 +24,23 @@
 }
 
 .VPNavBar .nav-link .text {
-  color: #ccc !important;
+  color: #5a5548 !important;
 }
 
 .VPNavBar .nav-link:hover .text {
-  color: #fff !important;
+  color: #2c2820 !important;
 }
 
 .VPNavBar .active .text {
-  color: #fff !important;
+  color: #2c2820 !important;
 }
 
 .VPNavBar .title {
-  color: #fff !important;
+  color: #2c2820 !important;
 }
 
 .VPNavBar .menu-button {
-  color: #fff !important;
+  color: #2c2820 !important;
 }
 
 .VPNavBar .curtain {
@@ -48,72 +48,72 @@
 }
 
 .VPNavBarSearchButton {
-  color: #ccc !important;
+  color: #5a5548 !important;
 }
 
 .VPNavBarSearchButton:hover {
-  color: #fff !important;
+  color: #2c2820 !important;
 }
 
-/* ---- Dark sidebar ---- */
+/* ---- Warm sidebar ---- */
 .VPSidebar {
-  background-color: #1a1a1a !important;
-  border-right: 1px solid #333 !important;
+  background-color: #f5f0e8 !important;
+  border-right: 1px solid #d4cfc5 !important;
 }
 
 .VPSidebar .curtain {
-  background-color: #1a1a1a !important;
+  background-color: #f5f0e8 !important;
 }
 
 .VPSidebar .sidebar-nav .group {
-  border-color: #333 !important;
+  border-color: #d4cfc5 !important;
 }
 
 .VPSidebar .VPSidebarItem .text {
-  color: #bbb !important;
+  color: #5a5548 !important;
 }
 
 .VPSidebar .VPSidebarItem .text:hover {
-  color: #fff !important;
+  color: #2c2820 !important;
 }
 
 .VPSidebar .VPSidebarItem.is-active .text {
-  color: #fff !important;
+  color: #2c2820 !important;
   font-weight: 600;
 }
 
 .VPSidebar .VPSidebarItem.level-1.is-active .text {
-  color: #fff !important;
+  color: #2c2820 !important;
 }
 
 .VPSidebar .VPSidebarItem .arrow {
-  color: #888 !important;
+  color: #8a8476 !important;
 }
 
 .VPSidebar .group .title {
-  color: #fff !important;
+  color: #2c2820 !important;
 }
 
 .VPSidebar .VPSidebarItem.is-active > .item > .link > .text {
-  color: #fff !important;
+  color: #2c2820 !important;
 }
 
 .VPSidebar .indicator {
-  background-color: #a78bfa !important;
+  background-color: #c9a44a !important;
 }
 
 /* ---- Light content area ---- */
 .VPDoc {
-  background-color: #fff !important;
+  background-color: #fffef9 !important;
 }
 
 .VPContent .content-container {
-  background-color: #fff !important;
+  background-color: #fffef9 !important;
   max-width: 900px !important;
 }
 
 .VPDoc .vp-doc {
-  color: #333 !important;
+  color: #3c3830 !important;
 }
 
 .VPDoc .vp-doc h1,
@@ -122,105 +122,105 @@
 .VPDoc .vp-doc h4,
 .VPDoc .vp-doc h5,
 .VPDoc .vp-doc h6 {
-  color: #111 !important;
+  color: #2c2820 !important;
 }
 
 .VPDoc .vp-doc a {
-  color: #7c5cff !important;
+  color: #b8860b !important;
 }
 
 .VPDoc .vp-doc a:hover {
-  color: #5c3aff !important;
+  color: #8b6508 !important;
 }
 
 .VPDoc .vp-doc code {
-  background-color: #f4f4f5 !important;
-  color: #e879f9 !important;
+  background-color: #f0ebe3 !important;
+  color: #8b6914 !important;
 }
 
 .VPDoc .vp-doc pre {
-  background-color: #1e1e1e !important;
+  background-color: #2c2820 !important;
 }
 
 .VPDoc .vp-doc pre code {
   background-color: transparent !important;
-  color: #d4d4d4 !important;
+  color: #d4cfc5 !important;
 }
 
-/* ---- Dark outline / TOC on right ---- */
+/* ---- Warm outline / TOC on right ---- */
 .VPLocalNav {
-  background-color: #1a1a1a !important;
-  border-bottom: 1px solid #333 !important;
+  background-color: #f5f0e8 !important;
+  border-bottom: 1px solid #d4cfc5 !important;
 }
 
 .VPLocalNav .container {
-  background-color: #1a1a1a !important;
+  background-color: #f5f0e8 !important;
 }
 
 .VPOutline {
-  background-color: #1a1a1a !important;
-  border-left: 1px solid #333 !important;
+  background-color: #f5f0e8 !important;
+  border-left: 1px solid #d4cfc5 !important;
 }
 
 .VPOutline .content {
-  background-color: #1a1a1a !important;
+  background-color: #f5f0e8 !important;
 }
 
 .VPOutline .outline-title {
-  color: #fff !important;
+  color: #2c2820 !important;
 }
 
 .VPOutline .outline-link {
-  color: #bbb !important;
+  color: #5a5548 !important;
 }
 
 .VPOutline .outline-link:hover {
-  color: #fff !important;
+  color: #2c2820 !important;
 }
 
 .VPOutline .outline-link.active {
-  color: #fff !important;
+  color: #2c2820 !important;
 }
 
 /* ---- Home page ---- */
 .VPHome {
-  background-color: #fff !important;
+  background-color: #fffef9 !important;
 }
 
 .VPHome .VPHero .name {
-  color: #111 !important;
+  color: #2c2820 !important;
 }
 
 .VPHome .VPHero .text {
-  color: #444 !important;
+  color: #5a5548 !important;
 }
 
 .VPHome .VPHero .tagline {
-  color: #666 !important;
+  color: #7a7568 !important;
 }
 
 .VPHome .VPFeature {
-  background-color: #f9f9f9 !important;
-  border: 1px solid #eee !important;
+  background-color: #f5f0e8 !important;
+  border: 1px solid #d4cfc5 !important;
 }
 
 .VPHome .VPFeature .title {
-  color: #111 !important;
+  color: #2c2820 !important;
 }
 
 .VPHome .VPFeature .details {
-  color: #555 !important;
+  color: #5a5548 !important;
 }
 
 /* ---- Footer ---- */
 .VPFooter {
-  background-color: #f5f5f5 !important;
-  border-top: 1px solid #ddd !important;
+  background-color: #f0ebe3 !important;
+  border-top: 1px solid #d4cfc5 !important;
 }
 
 .VPFooter .message,
 .VPFooter .copyright {
-  color: #888 !important;
+  color: #8a8476 !important;
 }
 
 /* ---- Scrollbar ---- */
@@ -229,10 +229,10 @@
 }
 
 .VPSidebar::-webkit-scrollbar-thumb {
-  background-color: #444;
+  background-color: #c4beb0;
   border-radius: 3px;
 }
 
 .VPSidebar::-webkit-scrollbar-track {
-  background-color: #1a1a1a;
+  background-color: #f5f0e8;
 }
