@@ -1,10 +1,13 @@
-/* Warm paper theme - complete rewrite */
+/* Warm paper theme - fix overlapping elements and code blocks */
 
-/* ---- CSS Variables ---- */
+/* ===========================
+   CSS VARIABLES
+   =========================== */
+
 :root {
   --vp-layout-max-width: 100%;
   --vp-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --vp-font-family-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace;
+  --vp-font-family-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
 
   /* Warm paper palette */
   --vp-c-bg: #fffef9;
@@ -17,67 +20,50 @@
   --vp-c-text-1: #3c3830;
   --vp-c-text-2: #5a5548;
   --vp-c-text-3: #7a7568;
-  --vp-c-text-code: #8b6914;
   --vp-c-heading: #2c2820;
   --vp-c-link: #b8860b;
   --vp-c-link-hover: #8b6508;
   --vp-c-accent: #c9a44a;
+  --vp-c-code-text: #8b6914;
   --vp-c-code-bg: #f0ebe3;
 
   /* Code block - warm dark, NOT black */
   --vp-code-block-bg: #3a3528;
   --vp-code-block-border: #4a4438;
-  --vp-code-block-divider-color: #4a4438;
-  --vp-code-color: #8b6914;
 
-  /* Prism overrides */
-  --vp-code-lang-color: #8a8476;
-  --vp-code-copy-code-border-color: #4a4438;
-  --vp-code-copy-code-hover-border-color: #5a5548;
-  --vp-code-copy-code-active-text: #8a8476;
-
-  /* Nav & layout */
+  /* Layout */
   --vp-nav-height: 56px;
   --vp-nav-bg-color: #f5f0e8;
   --vp-nav-screen-bg-color: #f5f0e8;
   --vp-sidebar-bg-color: #f5f0e8;
-  --vp-sidebar-width: 272px;
   --vp-local-nav-bg-color: #f5f0e8;
+  --vp-footer-bg-color: #f0ebe3;
 
   /* Home */
   --vp-home-hero-name-color: #2c2820;
 
-  /* Custom block */
+  /* Custom blocks */
   --vp-custom-block-tip-border: #c9a44a;
   --vp-custom-block-tip-text: #5a5548;
   --vp-custom-block-tip-bg: #faf6ee;
-  --vp-custom-block-tip-title-text: #2c2820;
   --vp-custom-block-warning-border: #e5964a;
   --vp-custom-block-warning-text: #5a5548;
   --vp-custom-block-warning-bg: #fdf4ed;
-  --vp-custom-block-warning-title-text: #2c2820;
   --vp-custom-block-danger-border: #d94040;
   --vp-custom-block-danger-text: #5a5548;
   --vp-custom-block-danger-bg: #fdf0f0;
-  --vp-custom-block-danger-title-text: #d94040;
-
-  /* Footer */
-  --vp-footer-bg-color: #f0ebe3;
-
-  /* Doc */
-  --vp-doc-text: #3c3830;
 }
 
-/* ============================================================
-   NAVIGATION - ensure visible and not obscured
-   ============================================================ */
+/* ===========================
+   NAVIGATION
+   =========================== */
 
 .VPNav {
   z-index: 100 !important;
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: sticky !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
 }
 
 .VPNavBar {
@@ -93,8 +79,7 @@
   background-color: var(--vp-nav-bg-color) !important;
 }
 
-/* Nav title */
-.VPNavBar .title,
+.VPNav .title,
 .VPNav .nav-bar-title {
   color: var(--vp-c-heading) !important;
   font-weight: 600;
@@ -123,9 +108,9 @@
   color: var(--vp-c-heading) !important;
 }
 
-/* ============================================================
+/* ===========================
    SIDEBAR
-   ============================================================ */
+   =========================== */
 
 .VPSidebar {
   background-color: var(--vp-sidebar-bg-color) !important;
@@ -178,7 +163,6 @@
   border-radius: 2px !important;
 }
 
-/* Sidebar scrollbar */
 .VPSidebar::-webkit-scrollbar {
   width: 5px;
 }
@@ -192,14 +176,13 @@
   background-color: var(--vp-c-bg-sidebar);
 }
 
-/* ============================================================
-   LOCAL NAV (above content, when sidebar shown)
-   ============================================================ */
+/* ===========================
+   LOCAL NAV (above content)
+   =========================== */
 
 .VPLocalNav {
   background-color: var(--vp-local-nav-bg-color) !important;
   border-bottom: 1px solid var(--vp-c-border);
-  top: var(--vp-nav-height) !important;
   z-index: 80 !important;
 }
 
@@ -207,9 +190,9 @@
   background-color: var(--vp-local-nav-bg-color) !important;
 }
 
-/* ============================================================
-   OUTLINE (TOC right side)
-   ============================================================ */
+/* ===========================
+   OUTLINE (TOC)
+   =========================== */
 
 .VPOutline {
   z-index: 80 !important;
@@ -243,9 +226,9 @@
   font-weight: 500;
 }
 
-/* ============================================================
-   CONTENT AREA - full width, no clipping
-   ============================================================ */
+/* ===========================
+   CONTENT AREA - FULL WIDTH
+   =========================== */
 
 .VPDoc {
   background-color: var(--vp-c-bg) !important;
@@ -259,43 +242,36 @@
   background-color: var(--vp-c-bg) !important;
 }
 
-/* Make content truly full width */
-.VPDoc:not(.has-sidebar) .container,
-.VPDoc.has-sidebar .container {
+.VPDoc .container {
   max-width: 100% !important;
   padding: 0 !important;
 }
 
-.VPDoc:not(.has-sidebar) .content-container {
+.VPDoc .content-container {
   max-width: 100% !important;
   margin: 0 !important;
-  padding: 0 40px !important;
 }
 
-@media (min-width: 960px) {
-  .VPDoc.has-sidebar .content-container {
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 40px !important;
-  }
+.vp-doc {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 32px 40px 96px !important;
 }
 
 @media (max-width: 768px) {
-  .VPDoc:not(.has-sidebar) .content-container,
-  .VPDoc.has-sidebar .content-container {
-    padding: 0 16px !important;
+  .vp-doc {
+    padding: 24px 16px 64px !important;
   }
 }
 
-/* ============================================================
+/* ===========================
    TYPOGRAPHY
-   ============================================================ */
+   =========================== */
 
 .vp-doc {
   color: var(--vp-c-text-1) !important;
   font-size: 16px !important;
   line-height: 1.8 !important;
-  letter-spacing: 0.01em;
 }
 
 .vp-doc h1 {
@@ -304,7 +280,6 @@
   margin-top: 1.2em !important;
   margin-bottom: 0.6em !important;
   font-weight: 700 !important;
-  letter-spacing: -0.02em;
   color: var(--vp-c-heading) !important;
 }
 
@@ -315,7 +290,6 @@
   margin-bottom: 0.5em !important;
   padding-bottom: 0.3em !important;
   font-weight: 600 !important;
-  letter-spacing: -0.01em;
   color: var(--vp-c-heading) !important;
   border-bottom: 1px solid var(--vp-c-divider) !important;
 }
@@ -358,19 +332,14 @@
   color: var(--vp-c-heading);
 }
 
-.vp-doc em {
-  font-style: italic;
-  color: var(--vp-c-text-2);
-}
-
 .vp-doc hr {
   border-color: var(--vp-c-divider) !important;
   margin: 2em 0 !important;
 }
 
-/* ============================================================
+/* ===========================
    LINKS
-   ============================================================ */
+   =========================== */
 
 .vp-doc a {
   color: var(--vp-c-link) !important;
@@ -384,54 +353,136 @@
   border-bottom-color: var(--vp-c-link-hover);
 }
 
-/* ============================================================
+/* ===========================
    INLINE CODE
-   ============================================================ */
+   =========================== */
 
-.vp-doc code {
+.vp-doc :not(pre) > code {
   background-color: var(--vp-c-code-bg) !important;
-  color: var(--vp-c-text-code) !important;
+  color: var(--vp-c-code-text) !important;
   border-radius: 4px;
   padding: 2px 7px;
   font-size: 0.88em;
   font-family: var(--vp-font-family-mono);
 }
 
-/* ============================================================
-   CODE BLOCKS - warm dark, NOT pure black
-   ============================================================ */
+/* ===========================
+   CODE BLOCKS - the main fix
+   =========================== */
 
+/* Outer container */
 .vp-doc div[class*='language-'] {
   background-color: var(--vp-code-block-bg) !important;
   border: 1px solid var(--vp-code-block-border) !important;
   border-radius: 10px !important;
-  margin: 1.2em 0 !important;
-  padding-top: 40px !important;
+  margin: 1.5em 0 !important;
   position: relative;
 }
 
-/* Remove any default black backgrounds */
-.vp-doc pre {
+/* The pre element inside */
+.vp-doc div[class*='language-'] pre {
   background-color: transparent !important;
   border: none !important;
   margin: 0 !important;
-  padding: 16px 20px 20px !important;
+  padding: 20px !important;
   border-radius: 0 !important;
-  box-shadow: none !important;
 }
 
-.vp-doc pre code {
+/* The code element inside pre */
+.vp-doc div[class*='language-'] code {
   background-color: transparent !important;
   color: #e8e0d0 !important;
   font-size: 13.5px !important;
   line-height: 1.65 !important;
   padding: 0 !important;
-  border-radius: 0 !important;
+}
+
+/* Force all spans inside code blocks to inherit from parent */
+.vp-doc div[class*='language-'] pre code span {
+  color: inherit !important;
+  background-color: transparent !important;
+}
+
+/* Syntax highlighting - apply to ALL spans with specific classes */
+.vp-doc div[class*='language-'] .token.keyword,
+.vp-doc div[class*='language-'] .keyword {
+  color: #d4a84b !important;
+}
+
+.vp-doc div[class*='language-'] .token.string,
+.vp-doc div[class*='language-'] .string {
+  color: #a8c47a !important;
+}
+
+.vp-doc div[class*='language-'] .token.comment,
+.vp-doc div[class*='language-'] .comment {
+  color: #8a8476 !important;
+  font-style: italic;
+}
+
+.vp-doc div[class*='language-'] .token.function,
+.vp-doc div[class*='language-'] .function {
+  color: #d4b87a !important;
+}
+
+.vp-doc div[class*='language-'] .token.class-name,
+.vp-doc div[class*='language-'] .class-name {
+  color: #c9a44a !important;
+}
+
+.vp-doc div[class*='language-'] .token.punctuation,
+.vp-doc div[class*='language-'] .punctuation {
+  color: #c4beb0 !important;
+}
+
+.vp-doc div[class*='language-'] .token.number,
+.vp-doc div[class*='language-'] .number {
+  color: #b09a6c !important;
+}
+
+.vp-doc div[class*='language-'] .token.boolean,
+.vp-doc div[class*='language-'] .boolean {
+  color: #d4a84b !important;
+}
+
+.vp-doc div[class*='language-'] .token.operator,
+.vp-doc div[class*='language-'] .operator {
+  color: #c4beb0 !important;
+}
+
+.vp-doc div[class*='language-'] .token.property,
+.vp-doc div[class*='language-'] .property {
+  color: #d4b87a !important;
+}
+
+.vp-doc div[class*='language-'] .token.constant,
+.vp-doc div[class*='language-'] .constant {
+  color: #c9a44a !important;
+}
+
+.vp-doc div[class*='language-'] .token.tag,
+.vp-doc div[class*='language-'] .tag {
+  color: #d4a84b !important;
+}
+
+.vp-doc div[class*='language-'] .token.attr-name,
+.vp-doc div[class*='language-'] .attr-name {
+  color: #d4b87a !important;
+}
+
+.vp-doc div[class*='language-'] .token.attr-value,
+.vp-doc div[class*='language-'] .attr-value {
+  color: #a8c47a !important;
+}
+
+.vp-doc div[class*='language-'] .token.selector,
+.vp-doc div[class*='language-'] .selector {
+  color: #d4a84b !important;
 }
 
 /* Language label */
 .vp-doc div[class*='language-']::before {
-  color: var(--vp-code-lang-color) !important;
+  color: #8a8476 !important;
   position: absolute;
   top: 8px;
   left: 16px;
@@ -439,87 +490,19 @@
 }
 
 /* Copy button */
-.vp-doc .copy-icon,
-.vp-doc [class*='copy'] {
+.vp-doc .copy-button {
   color: #8a8476 !important;
+  border-color: var(--vp-code-block-border) !important;
+  background-color: transparent !important;
 }
 
-.vp-doc .copy-icon:hover,
-.vp-doc [class*='copy']:hover {
+.vp-doc .copy-button:hover {
   color: var(--vp-c-accent) !important;
 }
 
-/* Syntax highlighting - all token colors for readability */
-.vp-doc .token.keyword {
-  color: #d4a84b !important;
-}
-
-.vp-doc .token.string {
-  color: #a8c47a !important;
-}
-
-.vp-doc .token.comment {
-  color: #8a8476 !important;
-  font-style: italic;
-}
-
-.vp-doc .token.function {
-  color: #d4b87a !important;
-}
-
-.vp-doc .token.class-name,
-.vp-doc .token.type,
-.vp-doc .token.interface {
-  color: #c9a44a !important;
-}
-
-.vp-doc .token.punctuation {
-  color: #c4beb0 !important;
-}
-
-.vp-doc .token.number {
-  color: #b09a6c !important;
-}
-
-.vp-doc .token.boolean {
-  color: #d4a84b !important;
-}
-
-.vp-doc .token.operator {
-  color: #c4beb0 !important;
-}
-
-.vp-doc .token.property {
-  color: #d4b87a !important;
-}
-
-.vp-doc .token.constant {
-  color: #c9a44a !important;
-}
-
-.vp-doc .token.tag {
-  color: #d4a84b !important;
-}
-
-.vp-doc .token.attr-name {
-  color: #d4b87a !important;
-}
-
-.vp-doc .token.attr-value {
-  color: #a8c47a !important;
-}
-
-.vp-doc .token.selector {
-  color: #d4a84b !important;
-}
-
-.vp-doc .token.plain {
-  color: #e8e0d0 !important;
-}
-
-/* ============================================================
+/* ===========================
    TABLES
-   ============================================================ */
+   =========================== */
 
 .vp-doc table {
   width: 100% !important;
@@ -554,9 +537,9 @@
   background-color: #f5f0e8;
 }
 
-/* ============================================================
+/* ===========================
    BLOCKQUOTES
-   ============================================================ */
+   =========================== */
 
 .vp-doc blockquote {
   border-left: 4px solid var(--vp-c-accent) !important;
@@ -568,9 +551,9 @@
   font-style: normal !important;
 }
 
-/* ============================================================
-   CUSTOM BLOCKS (tip/warning/danger)
-   ============================================================ */
+/* ===========================
+   CUSTOM BLOCKS
+   =========================== */
 
 .vp-doc .custom-block {
   border-radius: 8px !important;
@@ -591,50 +574,60 @@
   margin: 0.4em 0 !important;
 }
 
-/* ============================================================
-   HOME PAGE
-   ============================================================ */
+/* ===========================
+   HOME PAGE - FIX OVERLAP
+   =========================== */
 
 .VPHome {
   background-color: var(--vp-c-bg) !important;
-  padding-bottom: 0 !important;
 }
 
-/* Hero */
+/* Hero - fix overlap issue */
 .VPHero {
-  padding: 80px 24px 60px !important;
+  padding: 64px 24px 48px !important;
 }
 
 .VPHero .container {
   max-width: 800px;
 }
 
+/* Name and text must NOT overlap */
 .VPHero .name {
   color: var(--vp-c-heading) !important;
-  font-size: 48px !important;
+  font-size: 42px !important;
   font-weight: 700 !important;
   letter-spacing: -0.02em;
-  line-height: 1.2;
+  line-height: 1.15 !important;
+  margin-bottom: 12px !important;
+  display: block !important;
+  position: relative !important;
 }
 
 .VPHero .text {
   color: var(--vp-c-text-2) !important;
-  font-size: 20px !important;
-  line-height: 1.5;
+  font-size: 18px !important;
+  line-height: 1.6 !important;
   font-weight: 400;
+  display: block !important;
+  margin-bottom: 8px !important;
 }
 
 .VPHero .tagline {
   color: var(--vp-c-text-3) !important;
-  font-size: 16px !important;
-  line-height: 1.6;
-  margin-top: 12px !important;
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+  margin-top: 8px !important;
+  display: block !important;
 }
 
 /* Hero actions */
 .VPHero .actions {
-  margin-top: 32px !important;
-  gap: 16px !important;
+  margin-top: 28px !important;
+  gap: 14px !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  position: relative !important;
+  z-index: 1 !important;
 }
 
 .VPButton {
@@ -643,6 +636,7 @@
   padding: 10px 28px !important;
   font-size: 15px !important;
   transition: all 0.2s !important;
+  display: inline-block !important;
 }
 
 .VPButton.brand {
@@ -666,7 +660,6 @@
 .VPButton.alt:hover {
   border-color: var(--vp-c-accent) !important;
   background-color: #faf6ee !important;
-  color: var(--vp-c-heading) !important;
 }
 
 /* Feature cards */
@@ -706,9 +699,9 @@
   line-height: 1.6 !important;
 }
 
-/* ============================================================
-   PAGINATION (prev/next)
-   ============================================================ */
+/* ===========================
+   PAGINATION
+   =========================== */
 
 .vp-doc .pager-link {
   background-color: #faf7f0 !important;
@@ -732,9 +725,9 @@
   color: var(--vp-c-text-2) !important;
 }
 
-/* ============================================================
+/* ===========================
    FOOTER
-   ============================================================ */
+   =========================== */
 
 .VPFooter {
   background-color: var(--vp-c-bg-alt) !important;
@@ -748,9 +741,9 @@
   font-size: 13px !important;
 }
 
-/* ============================================================
+/* ===========================
    IMAGES
-   ============================================================ */
+   =========================== */
 
 .vp-doc img {
   border-radius: 8px;
@@ -759,26 +752,25 @@
   max-width: 100% !important;
 }
 
-/* ============================================================
+/* ===========================
    SELECTION
-   ============================================================ */
+   =========================== */
 
 ::selection {
   background-color: #e8d5a8;
   color: var(--vp-c-heading);
 }
 
-/* ============================================================
+/* ===========================
    RESPONSIVE
-   ============================================================ */
+   =========================== */
 
 @media (max-width: 960px) {
   .VPHero .name {
-    font-size: 36px !important;
+    font-size: 34px !important;
   }
-
   .VPHero .text {
-    font-size: 18px !important;
+    font-size: 16px !important;
   }
 }
 
@@ -786,34 +778,24 @@
   .vp-doc h1 {
     font-size: 1.8em !important;
   }
-
   .vp-doc h2 {
     font-size: 1.45em !important;
   }
-
   .vp-doc p,
   .vp-doc ul,
   .vp-doc ol {
     font-size: 15px !important;
   }
-
   .VPHero {
-    padding: 48px 16px 40px !important;
+    padding: 40px 16px 32px !important;
   }
-
   .VPHero .name {
-    font-size: 32px !important;
+    font-size: 30px !important;
   }
-
-  .VPHero .tagline {
-    font-size: 15px !important;
-  }
-
   .VPHero .actions {
     flex-direction: column !important;
-    gap: 12px !important;
+    gap: 10px !important;
   }
-
   .VPButton {
     width: 100% !important;
     text-align: center !important;
