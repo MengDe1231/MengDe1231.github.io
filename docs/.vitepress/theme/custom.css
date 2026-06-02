@@ -65,6 +65,12 @@
   /* Content width */
   --vp-doc-max-width: 760px;
 
+  /* Override z-index stack: sidebar must stay below navbar */
+  --vp-z-index-nav: 100 !important;
+  --vp-z-index-sidebar: 10 !important;
+  --vp-z-index-local-nav: 20 !important;
+  --vp-z-index-footer: 10 !important;
+
   /* Home */
   --vp-home-hero-name-color: #141413;
 
@@ -93,7 +99,9 @@
   border-bottom: 1px solid var(--vp-c-divider);
 }
 
+/* Ensure the nav bar content stays above sidebar */
 .VPNavBar {
+  z-index: 200 !important;
   background-color: var(--vp-nav-bg-color) !important;
   backdrop-filter: none !important;
 }
@@ -152,10 +160,11 @@
    =========================== */
 
 .VPSidebar {
+  top: var(--vp-nav-height, 56px) !important;
   background-color: var(--vp-sidebar-bg-color) !important;
   border-right: 1px solid var(--vp-c-border);
   padding-top: 0 !important;
-  z-index: 90 !important;
+  z-index: 10 !important;
 }
 
 /* Hide the curtain — it was covering the navbar */
