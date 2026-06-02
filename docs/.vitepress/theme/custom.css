@@ -14,7 +14,7 @@
   --vp-font-family-base: 'Lora', 'Georgia', 'Noto Serif SC', 'Source Han Serif CN', serif;
   --vp-font-family-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
 
-  /* Warm paper palette — inspired by Anthropic's editorial aesthetic */
+  /* Warm paper palette */
   --vp-c-bg: #faf9f5;
   --vp-c-bg-alt: #f0ebe3;
   --vp-c-bg-nav: #f5f1ea;
@@ -25,20 +25,20 @@
   --vp-c-border: #e8e6dc;
   --vp-c-divider: #e8e6dc;
 
-  /* Text — warm dark, not pure black */
+  /* Text */
   --vp-c-text-1: #2c2820;
   --vp-c-text-2: #5a5548;
   --vp-c-text-3: #8a8476;
   --vp-c-heading: #141413;
 
-  /* Links — earthy gold/brown */
+  /* Links */
   --vp-c-link: #b8860b;
   --vp-c-link-hover: #8b6508;
 
-  /* Accent — primary warm gold */
+  /* Accent */
   --vp-c-accent: #c9a44a;
 
-  /* Earthy accent colors for callouts, badges, etc. */
+  /* Earthy accents */
   --vp-c-terracotta: #d97757;
   --vp-c-terracotta-soft: rgba(217, 119, 87, 0.08);
   --vp-c-sage: #788c5d;
@@ -50,7 +50,7 @@
   --vp-c-code-text: #8b6914;
   --vp-c-code-bg: #f0ebe3;
 
-  /* Code block —温和 dark gray, not pure black */
+  /* Code block */
   --vp-code-block-bg: #262624;
   --vp-code-block-border: #3a3a36;
 
@@ -62,7 +62,7 @@
   --vp-local-nav-bg-color: #f5f1ea;
   --vp-footer-bg-color: #f0ebe3;
 
-  /* Content width — constrained for optimal reading (700-800px) */
+  /* Content width */
   --vp-doc-max-width: 760px;
 
   /* Home */
@@ -81,15 +81,15 @@
 }
 
 /* ===========================
-   NAVIGATION
+   NAVIGATION — fixed on top
    =========================== */
 
 .VPNav {
-  z-index: 100 !important;
-  position: sticky !important;
+  position: fixed !important;
   top: 0 !important;
   left: 0 !important;
   right: 0 !important;
+  z-index: 200 !important;
   border-bottom: 1px solid var(--vp-c-divider);
 }
 
@@ -102,7 +102,10 @@
   background-color: transparent !important;
 }
 
+/* Constrain navbar width on ultrawide screens */
 .VPNavBar .container {
+  max-width: 1440px !important;
+  margin: 0 auto !important;
   background-color: var(--vp-nav-bg-color) !important;
 }
 
@@ -129,12 +132,19 @@
   color: var(--vp-c-heading) !important;
 }
 
+/* Search button — visible boundary */
 .VPNavBarSearchButton {
   color: var(--vp-c-text-2) !important;
+  border: 1px solid rgba(20, 20, 19, 0.1) !important;
+  border-radius: 6px !important;
+  background-color: rgba(20, 20, 19, 0.02) !important;
+  transition: background-color 0.2s, border-color 0.2s;
 }
 
 .VPNavBarSearchButton:hover {
   color: var(--vp-c-heading) !important;
+  border-color: rgba(20, 20, 19, 0.2) !important;
+  background-color: rgba(20, 20, 19, 0.04) !important;
 }
 
 /* ===========================
@@ -144,12 +154,19 @@
 .VPSidebar {
   background-color: var(--vp-sidebar-bg-color) !important;
   border-right: 1px solid var(--vp-c-border);
-  padding-top: 8px !important;
+  padding-top: 0 !important;
   z-index: 90 !important;
 }
 
+/* Hide the curtain — it was covering the navbar */
 .VPSidebar .curtain {
-  background-color: var(--vp-sidebar-bg-color) !important;
+  display: none !important;
+}
+
+/* Sidebar breathing room */
+.VPSidebar .sidebar-nav {
+  padding-left: 16px !important;
+  padding-right: 16px !important;
 }
 
 .VPSidebar .sidebar-nav .group {
@@ -248,16 +265,30 @@
   font-size: 13px !important;
   font-family: var(--vp-font-family-base) !important;
   transition: color 0.2s;
-  line-height: 1.6;
+  line-height: 1.8;
 }
 
 .VPOutline .outline-link:hover {
   color: var(--vp-c-heading) !important;
 }
 
+/* Active outline link — orange accent */
 .VPOutline .outline-link.active {
-  color: var(--vp-c-heading) !important;
-  font-weight: 500;
+  color: var(--vp-c-accent) !important;
+  font-weight: 600;
+  position: relative;
+}
+
+.VPOutline .outline-link.active::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--vp-c-accent);
 }
 
 /* ===========================
@@ -286,11 +317,11 @@
   margin: 0 !important;
 }
 
-/* Reading column — constrained width for comfortable reading */
+/* Reading column — constrained width */
 .vp-doc {
   max-width: var(--vp-doc-max-width);
   margin: 0 auto;
-  padding: 40px 40px 96px !important;
+  padding: 24px 40px 96px !important;
 }
 
 @media (max-width: 768px) {
@@ -300,7 +331,7 @@
 }
 
 /* ===========================
-   TYPOGRAPHY — Editorial Style
+   TYPOGRAPHY
    =========================== */
 
 .vp-doc {
@@ -310,34 +341,33 @@
   font-family: var(--vp-font-family-base) !important;
 }
 
-/* Headings — serif, dignified */
 .vp-doc h1 {
-  font-size: 2.4em !important;
+  font-size: 2.25em !important;
   line-height: 1.2 !important;
-  margin-top: 0.8em !important;
+  margin-top: 0.5em !important;
   margin-bottom: 0.5em !important;
   font-weight: 700 !important;
   color: var(--vp-c-heading) !important;
   font-family: var(--vp-font-family-base) !important;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 .vp-doc h2 {
-  font-size: 1.65em !important;
+  font-size: 1.6em !important;
   line-height: 1.3 !important;
-  margin-top: 1.8em !important;
+  margin-top: 1.6em !important;
   margin-bottom: 0.5em !important;
-  padding-bottom: 0.35em !important;
+  padding-bottom: 0.3em !important;
   font-weight: 600 !important;
   color: var(--vp-c-heading) !important;
   font-family: var(--vp-font-family-base) !important;
-  border-bottom: 1px solid var(--vp-c-divider) !important;
+  border-bottom: 1px solid rgba(20, 20, 19, 0.08) !important;
 }
 
 .vp-doc h3 {
-  font-size: 1.3em !important;
+  font-size: 1.25em !important;
   line-height: 1.35 !important;
-  margin-top: 1.4em !important;
+  margin-top: 1.2em !important;
   margin-bottom: 0.4em !important;
   font-weight: 600 !important;
   color: var(--vp-c-heading) !important;
@@ -354,20 +384,26 @@
 .vp-doc p {
   font-size: 16px !important;
   line-height: 1.75 !important;
-  margin-bottom: 1.2em !important;
+  margin-bottom: 1em !important;
   color: var(--vp-c-text-1) !important;
 }
 
 .vp-doc ul,
 .vp-doc ol {
   font-size: 16px !important;
-  line-height: 1.75 !important;
-  margin-bottom: 1em !important;
+  line-height: 1.7 !important;
+  margin-bottom: 0.8em !important;
   padding-left: 1.5em !important;
 }
 
 .vp-doc li {
   margin-bottom: 0.35em !important;
+}
+
+/* Tighten H3 to list proximity */
+.vp-doc h3 + ul,
+.vp-doc h3 + ol {
+  margin-top: -0.4em !important;
 }
 
 .vp-doc strong {
@@ -404,7 +440,7 @@
   background-color: var(--vp-c-code-bg) !important;
   color: var(--vp-c-code-text) !important;
   border-radius: 4px;
-  padding: 2px 6px;
+  padding: 3px 7px;
   font-size: 0.875em;
   font-family: var(--vp-font-family-mono) !important;
   letter-spacing: -0.01em;
@@ -427,6 +463,7 @@
   border: none !important;
   margin: 0 !important;
   padding: 20px 22px !important;
+  padding-left: 48px !important;
   border-radius: 0 !important;
 }
 
@@ -458,7 +495,7 @@
 
 .vp-doc div[class*='language-'] .token.comment,
 .vp-doc div[class*='language-'] .comment {
-  color: #7a7568 !important;
+  color: #8a8476 !important;
   font-style: italic;
 }
 
@@ -522,14 +559,32 @@
   color: #d4a84b !important;
 }
 
-/* Language label */
+/* Language badge — pill style */
 .vp-doc div[class*='language-']::before {
-  color: #7a7568 !important;
+  color: #c4beb0 !important;
   position: absolute;
-  top: 8px;
-  right: 16px;
-  font-size: 12px;
+  top: 10px;
+  right: 14px;
+  font-size: 11px;
+  font-weight: 600;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  background: rgba(255, 255, 255, 0.07);
+  padding: 2px 10px;
+  border-radius: 12px;
+  letter-spacing: 0.02em;
+}
+
+/* Line numbers — improved contrast */
+.vp-doc div[class*='language-'] .line-numbers-wrapper {
+  color: #6a6658 !important;
+  font-size: 13px !important;
+  border-right: 1px solid #3a3a36 !important;
+  padding-right: 12px !important;
+  padding-top: 20px !important;
+}
+
+.vp-doc div[class*='language-'] .line-number {
+  color: #6a6658 !important;
 }
 
 /* Copy button */
@@ -537,7 +592,7 @@
   color: #7a7568 !important;
   border-color: var(--vp-code-block-border) !important;
   background-color: transparent !important;
-  opacity: 0.6;
+  opacity: 0.5;
   transition: opacity 0.2s, color 0.2s;
 }
 
@@ -547,7 +602,7 @@
 }
 
 /* ===========================
-   TABLES — "Airy" editorial style
+   TABLES — airy
    =========================== */
 
 .vp-doc table {
@@ -556,7 +611,6 @@
   margin: 1.5em 0 !important;
   font-size: 15px !important;
   line-height: 1.6 !important;
-  /* No outer border — airy */
   border: none !important;
 }
 
@@ -569,7 +623,6 @@
   letter-spacing: 0.04em;
   padding: 10px 14px !important;
   text-align: left !important;
-  /* No borders between header cells */
   border: none !important;
   border-bottom: 2px solid #d4cfc5 !important;
 }
@@ -577,7 +630,6 @@
 .vp-doc tbody td {
   padding: 12px 14px !important;
   color: var(--vp-c-text-1) !important;
-  /* Horizontal hairline only, no vertical lines */
   border: none !important;
   border-bottom: 1px solid var(--vp-c-divider) !important;
   vertical-align: top !important;
@@ -592,14 +644,12 @@
 }
 
 /* ===========================
-   CALLOUTS / CUSTOM BLOCKS
-   Refined: left accent border + subtle bg
+   CALLOUTS
    =========================== */
 
 .vp-doc .custom-block {
   border-radius: 6px !important;
   padding: 14px 18px !important;
-  padding-left: 16px !important;
   margin: 1.5em 0 !important;
   border: none !important;
   border-left: 3px solid !important;
@@ -623,7 +673,6 @@
   margin: 0.3em 0 !important;
 }
 
-/* Tip / Info — muted blue */
 .vp-doc .custom-block.tip {
   border-left-color: var(--vp-c-muted-blue) !important;
   background-color: var(--vp-c-muted-blue-soft) !important;
@@ -634,7 +683,6 @@
   color: var(--vp-c-muted-blue) !important;
 }
 
-/* Warning — terracotta */
 .vp-doc .custom-block.warning,
 .vp-doc .custom-block.caution {
   border-left-color: var(--vp-c-terracotta) !important;
@@ -647,7 +695,6 @@
   color: var(--vp-c-terracotta) !important;
 }
 
-/* Danger — warm red */
 .vp-doc .custom-block.danger {
   border-left-color: #c44a4a !important;
   background-color: rgba(196, 74, 74, 0.06) !important;
@@ -723,7 +770,6 @@
   display: block !important;
 }
 
-/* Hero actions */
 .VPHero .actions {
   margin-top: 32px !important;
   gap: 14px !important;
@@ -766,7 +812,6 @@
   background-color: rgba(201, 164, 74, 0.06) !important;
 }
 
-/* Feature cards */
 .VPFeature {
   background-color: rgba(201, 164, 74, 0.04) !important;
   border: 1px solid var(--vp-c-divider) !important;
@@ -832,7 +877,7 @@
 }
 
 /* ===========================
-   DOC FOOTER (edit link, last updated, feedback)
+   DOC FOOTER
    =========================== */
 
 .VPDocFooter {
@@ -939,6 +984,29 @@
 ::selection {
   background-color: #e8d5a8;
   color: var(--vp-c-heading);
+}
+
+/* ===========================
+   THIRD-PARTY FLOATING WIDGETS
+   Hide or re-color jarring green icons
+   =========================== */
+
+/* Hide common third-party floating buttons that break the warm aesthetic */
+div[class*="leaf"],
+button[class*="leaf"],
+[class*="feedbac"],
+[class*="chat-widget"],
+[class*="intercom"],
+div[id*="intercom"],
+div[id*="hotjar"],
+div[id*="crisp"],
+div[id*="drift"],
+div[id*="tawk"],
+div[id*="chatwoot"],
+div[id*="zendesk"],
+iframe[id*="chat"],
+iframe[id*="feedback"] {
+  display: none !important;
 }
 
 /* ===========================
