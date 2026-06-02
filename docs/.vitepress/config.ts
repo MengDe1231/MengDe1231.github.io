@@ -82,5 +82,9 @@ export default defineConfig({
 
   markdown: {
     lineNumbers: true,
+    theme: {
+      light: 'github-light',
+      dark: 'material-theme-palenight',
+    },
   },
 })
