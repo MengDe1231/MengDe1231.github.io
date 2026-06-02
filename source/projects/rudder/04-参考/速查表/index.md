@@ -64,7 +64,7 @@ python3 .rudder/scripts/get_context.py
 对 AI 说以下任一话术即可跳过任务流程：
 
 ```
-skip trellis / 跳过 trellis / 别走流程 / 直接改 / 小修一下 / 先别建任务
+skip rudder / 跳过 rudder / 别走流程 / 直接改 / 小修一下 / 先别建任务
 ```
 
 ## 常用文件路径
