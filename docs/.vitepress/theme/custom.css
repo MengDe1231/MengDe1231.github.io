@@ -1,0 +1,238 @@
+/* Claude-style dark sidebar + light content theme */
+
+/* ---- Dark top nav ---- */
+.VPNav {
+  background-color: #1a1a1a !important;
+  border-bottom: 1px solid #333 !important;
+}
+
+.VPNav .title {
+  color: #fff !important;
+}
+
+.VPNav .nav-bar-title {
+  color: #fff !important;
+}
+
+.VPNavBar {
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+}
+
+.VPNavBar .content-body {
+  background-color: transparent !important;
+}
+
+.VPNavBar .nav-link .text {
+  color: #ccc !important;
+}
+
+.VPNavBar .nav-link:hover .text {
+  color: #fff !important;
+}
+
+.VPNavBar .active .text {
+  color: #fff !important;
+}
+
+.VPNavBar .title {
+  color: #fff !important;
+}
+
+.VPNavBar .menu-button {
+  color: #fff !important;
+}
+
+.VPNavBar .curtain {
+  background-color: transparent !important;
+}
+
+.VPNavBarSearchButton {
+  color: #ccc !important;
+}
+
+.VPNavBarSearchButton:hover {
+  color: #fff !important;
+}
+
+/* ---- Dark sidebar ---- */
+.VPSidebar {
+  background-color: #1a1a1a !important;
+  border-right: 1px solid #333 !important;
+}
+
+.VPSidebar .curtain {
+  background-color: #1a1a1a !important;
+}
+
+.VPSidebar .sidebar-nav .group {
+  border-color: #333 !important;
+}
+
+.VPSidebar .VPSidebarItem .text {
+  color: #bbb !important;
+}
+
+.VPSidebar .VPSidebarItem .text:hover {
+  color: #fff !important;
+}
+
+.VPSidebar .VPSidebarItem.is-active .text {
+  color: #fff !important;
+  font-weight: 600;
+}
+
+.VPSidebar .VPSidebarItem.level-1.is-active .text {
+  color: #fff !important;
+}
+
+.VPSidebar .VPSidebarItem .arrow {
+  color: #888 !important;
+}
+
+.VPSidebar .group .title {
+  color: #fff !important;
+}
+
+.VPSidebar .VPSidebarItem.is-active > .item > .link > .text {
+  color: #fff !important;
+}
+
+.VPSidebar .indicator {
+  background-color: #a78bfa !important;
+}
+
+/* ---- Light content area ---- */
+.VPDoc {
+  background-color: #fff !important;
+}
+
+.VPContent .content-container {
+  background-color: #fff !important;
+  max-width: 900px !important;
+}
+
+.VPDoc .vp-doc {
+  color: #333 !important;
+}
+
+.VPDoc .vp-doc h1,
+.VPDoc .vp-doc h2,
+.VPDoc .vp-doc h3,
+.VPDoc .vp-doc h4,
+.VPDoc .vp-doc h5,
+.VPDoc .vp-doc h6 {
+  color: #111 !important;
+}
+
+.VPDoc .vp-doc a {
+  color: #7c5cff !important;
+}
+
+.VPDoc .vp-doc a:hover {
+  color: #5c3aff !important;
+}
+
+.VPDoc .vp-doc code {
+  background-color: #f4f4f5 !important;
+  color: #e879f9 !important;
+}
+
+.VPDoc .vp-doc pre {
+  background-color: #1e1e1e !important;
+}
+
+.VPDoc .vp-doc pre code {
+  background-color: transparent !important;
+  color: #d4d4d4 !important;
+}
+
+/* ---- Dark outline / TOC on right ---- */
+.VPLocalNav {
+  background-color: #1a1a1a !important;
+  border-bottom: 1px solid #333 !important;
+}
+
+.VPLocalNav .container {
+  background-color: #1a1a1a !important;
+}
+
+.VPOutline {
+  background-color: #1a1a1a !important;
+  border-left: 1px solid #333 !important;
+}
+
+.VPOutline .content {
+  background-color: #1a1a1a !important;
+}
+
+.VPOutline .outline-title {
+  color: #fff !important;
+}
+
+.VPOutline .outline-link {
+  color: #bbb !important;
+}
+
+.VPOutline .outline-link:hover {
+  color: #fff !important;
+}
+
+.VPOutline .outline-link.active {
+  color: #fff !important;
+}
+
+/* ---- Home page ---- */
+.VPHome {
+  background-color: #fff !important;
+}
+
+.VPHome .VPHero .name {
+  color: #111 !important;
+}
+
+.VPHome .VPHero .text {
+  color: #444 !important;
+}
+
+.VPHome .VPHero .tagline {
+  color: #666 !important;
+}
+
+.VPHome .VPFeature {
+  background-color: #f9f9f9 !important;
+  border: 1px solid #eee !important;
+}
+
+.VPHome .VPFeature .title {
+  color: #111 !important;
+}
+
+.VPHome .VPFeature .details {
+  color: #555 !important;
+}
+
+/* ---- Footer ---- */
+.VPFooter {
+  background-color: #f5f5f5 !important;
+  border-top: 1px solid #ddd !important;
+}
+
+.VPFooter .message,
+.VPFooter .copyright {
+  color: #888 !important;
+}
+
+/* ---- Scrollbar ---- */
+.VPSidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.VPSidebar::-webkit-scrollbar-thumb {
+  background-color: #444;
+  border-radius: 3px;
+}
+
+.VPSidebar::-webkit-scrollbar-track {
+  background-color: #1a1a1a;
+}

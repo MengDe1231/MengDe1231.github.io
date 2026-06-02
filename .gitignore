@@ -10,7 +10,6 @@ _multiconfig.yml
 # VitePress
 docs/.vitepress/dist/
 docs/.vitepress/cache/
-.vitepress/
 
 # AI coding tools
 .rudder/
