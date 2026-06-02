@@ -1,4 +1,24 @@
-/* Claude-style warm paper theme */
+/* Claude-style warm paper theme - full width responsive */
+
+/* ---- Full width layout ---- */
+:root {
+  --vp-layout-max-width: 100% !important;
+  --vp-home-hero-name-color: #2c2820;
+}
+
+.VPDoc:not(.has-sidebar) .container {
+  max-width: 100% !important;
+}
+
+.VPDoc:not(.has-sidebar) .content-container {
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+/* Override VitePress default max-width */
+.VPDoc .content .content-container {
+  max-width: 100% !important;
+}
 
 /* ---- Warm top nav ---- */
 .VPNav {
@@ -25,6 +45,8 @@
 
 .VPNavBar .nav-link .text {
   color: #5a5548 !important;
+  font-weight: 500;
+  transition: color 0.2s;
 }
 
 .VPNavBar .nav-link:hover .text {
@@ -71,6 +93,7 @@
 
 .VPSidebar .VPSidebarItem .text {
   color: #5a5548 !important;
+  transition: color 0.2s;
 }
 
 .VPSidebar .VPSidebarItem .text:hover {
@@ -109,11 +132,14 @@
 
 .VPContent .content-container {
   background-color: #fffef9 !important;
-  max-width: 900px !important;
 }
 
 .VPDoc .vp-doc {
   color: #3c3830 !important;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .VPDoc .vp-doc h1,
@@ -136,15 +162,71 @@
 .VPDoc .vp-doc code {
   background-color: #f0ebe3 !important;
   color: #8b6914 !important;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 0.9em;
 }
 
+/* Code blocks - warm dark background, not black */
 .VPDoc .vp-doc pre {
-  background-color: #2c2820 !important;
+  background-color: #3a3528 !important;
+  border-radius: 8px;
+  border: 1px solid #4a4438 !important;
 }
 
 .VPDoc .vp-doc pre code {
   background-color: transparent !important;
-  color: #d4cfc5 !important;
+  color: #e8e0d0 !important;
+}
+
+/* Syntax highlighting overrides for dark warm code blocks */
+.vp-doc .language-ts .token.keyword,
+.vp-doc .language-js .token.keyword,
+.vp-doc .language-java .token.keyword,
+.vp-doc .language-css .token.keyword {
+  color: #d4a84b !important;
+}
+
+.vp-doc .language-ts .token.string,
+.vp-doc .language-js .token.string,
+.vp-doc .language-java .token.string {
+  color: #a8c47a !important;
+}
+
+.vp-doc .language-ts .token.comment,
+.vp-doc .language-js .token.comment,
+.vp-doc .language-java .token.comment {
+  color: #8a8476 !important;
+}
+
+.vp-doc .language-ts .token.function,
+.vp-doc .language-js .token.function,
+.vp-doc .language-java .token.function {
+  color: #d4b87a !important;
+}
+
+.vp-doc .language-ts .token.class-name,
+.vp-doc .language-js .token.class-name {
+  color: #c9a44a !important;
+}
+
+/* Copy button in code blocks */
+.VPDoc .vp-doc .copy-icon {
+  color: #8a8476 !important;
+}
+
+.VPDoc .vp-doc .copy-icon:hover {
+  color: #c9a44a !important;
+}
+
+/* Code block language badge */
+.VPDoc .vp-doc div[class*='language-'] {
+  background-color: #3a3528 !important;
+  margin: 16px 0;
+}
+
+.VPDoc .vp-doc div[class*='language-']::before {
+  color: #8a8476 !important;
 }
 
 /* ---- Warm outline / TOC on right ---- */
@@ -172,6 +254,7 @@
 
 .VPOutline .outline-link {
   color: #5a5548 !important;
+  transition: color 0.2s;
 }
 
 .VPOutline .outline-link:hover {
@@ -202,6 +285,12 @@
 .VPHome .VPFeature {
   background-color: #f5f0e8 !important;
   border: 1px solid #d4cfc5 !important;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.VPHome .VPFeature:hover {
+  border-color: #c9a44a !important;
+  box-shadow: 0 2px 8px rgba(201, 164, 74, 0.1);
 }
 
 .VPHome .VPFeature .title {
@@ -235,4 +324,95 @@
 
 .VPSidebar::-webkit-scrollbar-track {
   background-color: #f5f0e8;
+}
+
+/* ---- Responsive: mobile ---- */
+@media (max-width: 768px) {
+  .VPDoc .vp-doc {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .VPDoc .vp-doc h1 {
+    font-size: 1.8em;
+  }
+
+  .VPDoc .vp-doc h2 {
+    font-size: 1.5em;
+  }
+
+  .VPDoc .vp-doc pre {
+    margin: 12px -8px;
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .VPNav .nav-bar-title .title {
+    font-size: 16px;
+  }
+
+  .VPHome .VPHero .name {
+    font-size: 40px;
+  }
+
+  .VPHome .VPHero .tagline {
+    font-size: 16px;
+  }
+}
+
+/* ---- Tables ---- */
+.VPDoc .vp-doc table {
+  border-color: #d4cfc5 !important;
+}
+
+.VPDoc .vp-doc thead th {
+  background-color: #f5f0e8 !important;
+  color: #2c2820 !important;
+  border-color: #d4cfc5 !important;
+}
+
+.VPDoc .vp-doc tbody td {
+  border-color: #d4cfc5 !important;
+}
+
+/* ---- Blockquotes ---- */
+.VPDoc .vp-doc blockquote {
+  border-left-color: #c9a44a !important;
+  background-color: #f5f0e8 !important;
+  color: #5a5548 !important;
+  border-radius: 4px;
+}
+
+/* ---- Custom containers (tip/warning/danger) ---- */
+.VPDoc .vp-doc .custom-block {
+  border-radius: 8px;
+}
+
+.VPDoc .vp-doc .custom-block.tip {
+  border-color: #c9a44a !important;
+  background-color: #faf6ee !important;
+}
+
+.VPDoc .vp-doc .custom-block .custom-block-title {
+  color: #2c2820 !important;
+}
+
+/* ---- Prev/Next pagination ---- */
+.VPDoc .vp-doc .pager-link {
+  background-color: #f5f0e8 !important;
+  border-color: #d4cfc5 !important;
+  transition: border-color 0.2s;
+}
+
+.VPDoc .vp-doc .pager-link:hover {
+  border-color: #c9a44a !important;
+}
+
+.VPDoc .vp-doc .pager-link .title {
+  color: #2c2820 !important;
+}
+
+.VPDoc .vp-doc .pager-link .sub-title {
+  color: #5a5548 !important;
 }
