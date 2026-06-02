@@ -5,8 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4d316a9-0444-44ad-9b7e-de213a69575c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/source/projects/rudder/02-使用指南/日常使用指南/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/projects/rudder/02-使用指南/日常使用指南/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/projects/rudder/04-参考/速查表/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/projects/rudder/04-参考/速查表/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/dependabot.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_config.butterfly.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-workspace.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-workspace.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scaffolds/draft.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scaffolds/page.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scaffolds/post.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Hello-World-MengDe-s-Blog.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/about/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/notes/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/projects/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/projects/rudder/01-入门/快速开始/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/projects/rudder/01-入门/核心概念/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/projects/rudder/02-使用指南/PRD编写指南/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/projects/rudder/02-使用指南/任务系统/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/projects/rudder/02-使用指南/工作区系统/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/projects/rudder/02-使用指南/工作流/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/projects/rudder/02-使用指南/日常使用指南/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/projects/rudder/03-配置与定制/Monorepo指南/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/projects/rudder/03-配置与定制/平台配置/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/projects/rudder/03-配置与定制/自定义工作流/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/projects/rudder/03-配置与定制/配置指南/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/projects/rudder/04-参考/FAQ/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/projects/rudder/04-参考/SpecBootstarp/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/projects/rudder/04-参考/Spec系统/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/projects/rudder/04-参考/脚本参考/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/projects/rudder/04-参考/速查表/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/projects/rudder/index.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +106,7 @@
       <option name="presentableId" value="Default" />
       <updated>1780365391667</updated>
       <workItem from="1780365392764" duration="1930000" />
-      <workItem from="1780377998604" duration="3808000" />
+      <workItem from="1780377998604" duration="5458000" />
     </task>
     <servers />
   </component>
