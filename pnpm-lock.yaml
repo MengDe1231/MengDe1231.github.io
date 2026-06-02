@@ -41,6 +41,9 @@ importers:
       hexo-renderer-marked:
         specifier: ^7.0.0
         version: 7.0.1
+      hexo-renderer-pug:
+        specifier: ^3.0.0
+        version: 3.0.0
       hexo-renderer-stylus:
         specifier: ^3.0.1
         version: 3.0.1
