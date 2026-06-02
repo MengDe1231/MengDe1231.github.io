@@ -1,4 +1,7 @@
-/* Warm paper theme - fix overlapping elements and code blocks */
+/* ===========================
+   MENGDE BLOG — Editorial Aesthetic
+   人文感 / 出版物级印刷质感
+   =========================== */
 
 /* ===========================
    CSS VARIABLES
@@ -6,52 +9,75 @@
 
 :root {
   --vp-layout-max-width: 100%;
-  --vp-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --vp-font-family-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
 
-  /* Warm paper palette */
-  --vp-c-bg: #fffef9;
+  /* Font pairing: serif headings + humanistic body */
+  --vp-font-family-base: 'Lora', 'Georgia', 'Noto Serif SC', 'Source Han Serif CN', serif;
+  --vp-font-family-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+
+  /* Warm paper palette — inspired by Anthropic's editorial aesthetic */
+  --vp-c-bg: #faf9f5;
   --vp-c-bg-alt: #f0ebe3;
-  --vp-c-bg-nav: #f5f0e8;
-  --vp-c-bg-sidebar: #f5f0e8;
+  --vp-c-bg-nav: #f5f1ea;
+  --vp-c-bg-sidebar: #f5f1ea;
   --vp-c-bg-soft: #f0ebe3;
-  --vp-c-border: #d4cfc5;
-  --vp-c-divider: #e8e3db;
-  --vp-c-text-1: #3c3830;
+
+  /* Borders & dividers */
+  --vp-c-border: #e8e6dc;
+  --vp-c-divider: #e8e6dc;
+
+  /* Text — warm dark, not pure black */
+  --vp-c-text-1: #2c2820;
   --vp-c-text-2: #5a5548;
-  --vp-c-text-3: #7a7568;
-  --vp-c-heading: #2c2820;
+  --vp-c-text-3: #8a8476;
+  --vp-c-heading: #141413;
+
+  /* Links — earthy gold/brown */
   --vp-c-link: #b8860b;
   --vp-c-link-hover: #8b6508;
+
+  /* Accent — primary warm gold */
   --vp-c-accent: #c9a44a;
+
+  /* Earthy accent colors for callouts, badges, etc. */
+  --vp-c-terracotta: #d97757;
+  --vp-c-terracotta-soft: rgba(217, 119, 87, 0.08);
+  --vp-c-sage: #788c5d;
+  --vp-c-sage-soft: rgba(120, 140, 93, 0.08);
+  --vp-c-muted-blue: #6a9bcc;
+  --vp-c-muted-blue-soft: rgba(106, 155, 204, 0.08);
+
+  /* Inline code */
   --vp-c-code-text: #8b6914;
   --vp-c-code-bg: #f0ebe3;
 
-  /* Code block - warm dark, NOT black */
-  --vp-code-block-bg: #3a3528;
-  --vp-code-block-border: #4a4438;
+  /* Code block —温和 dark gray, not pure black */
+  --vp-code-block-bg: #262624;
+  --vp-code-block-border: #3a3a36;
 
   /* Layout */
   --vp-nav-height: 56px;
-  --vp-nav-bg-color: #f5f0e8;
-  --vp-nav-screen-bg-color: #f5f0e8;
-  --vp-sidebar-bg-color: #f5f0e8;
-  --vp-local-nav-bg-color: #f5f0e8;
+  --vp-nav-bg-color: #f5f1ea;
+  --vp-nav-screen-bg-color: #f5f1ea;
+  --vp-sidebar-bg-color: #f5f1ea;
+  --vp-local-nav-bg-color: #f5f1ea;
   --vp-footer-bg-color: #f0ebe3;
 
+  /* Content width — constrained for optimal reading (700-800px) */
+  --vp-doc-max-width: 760px;
+
   /* Home */
-  --vp-home-hero-name-color: #2c2820;
+  --vp-home-hero-name-color: #141413;
 
   /* Custom blocks */
-  --vp-custom-block-tip-border: #c9a44a;
-  --vp-custom-block-tip-text: #5a5548;
-  --vp-custom-block-tip-bg: #faf6ee;
-  --vp-custom-block-warning-border: #e5964a;
-  --vp-custom-block-warning-text: #5a5548;
-  --vp-custom-block-warning-bg: #fdf4ed;
-  --vp-custom-block-danger-border: #d94040;
-  --vp-custom-block-danger-text: #5a5548;
-  --vp-custom-block-danger-bg: #fdf0f0;
+  --vp-custom-block-tip-border: var(--vp-c-muted-blue);
+  --vp-custom-block-tip-text: #3a3528;
+  --vp-custom-block-tip-bg: var(--vp-c-muted-blue-soft);
+  --vp-custom-block-warning-border: var(--vp-c-terracotta);
+  --vp-custom-block-warning-text: #3a3528;
+  --vp-custom-block-warning-bg: var(--vp-c-terracotta-soft);
+  --vp-custom-block-danger-border: #c44a4a;
+  --vp-custom-block-danger-text: #3a3528;
+  --vp-custom-block-danger-bg: rgba(196, 74, 74, 0.06);
 }
 
 /* ===========================
@@ -64,6 +90,7 @@
   top: 0 !important;
   left: 0 !important;
   right: 0 !important;
+  border-bottom: 1px solid var(--vp-c-divider);
 }
 
 .VPNavBar {
@@ -83,12 +110,14 @@
 .VPNav .nav-bar-title {
   color: var(--vp-c-heading) !important;
   font-weight: 600;
+  font-family: var(--vp-font-family-base) !important;
 }
 
 .VPNavBar .nav-link .text {
   color: var(--vp-c-text-2) !important;
   font-weight: 500;
   font-size: 14px;
+  font-family: var(--vp-font-family-base) !important;
   transition: color 0.2s;
 }
 
@@ -130,6 +159,7 @@
 .VPSidebar .VPSidebarItem .text {
   color: var(--vp-c-text-2) !important;
   font-size: 14px !important;
+  font-family: var(--vp-font-family-base) !important;
   transition: color 0.2s;
   padding: 4px 0 !important;
 }
@@ -149,12 +179,13 @@
 
 .VPSidebar .group .title {
   color: var(--vp-c-heading) !important;
-  font-size: 12px !important;
+  font-size: 11px !important;
   font-weight: 600 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   margin-bottom: 8px !important;
-  margin-top: 20px !important;
+  margin-top: 24px !important;
 }
 
 .VPSidebar .indicator {
@@ -182,7 +213,7 @@
 
 .VPLocalNav {
   background-color: var(--vp-local-nav-bg-color) !important;
-  border-bottom: 1px solid var(--vp-c-border);
+  border-bottom: 1px solid var(--vp-c-divider);
   z-index: 80 !important;
 }
 
@@ -204,15 +235,18 @@
 
 .VPOutline .outline-title {
   color: var(--vp-c-heading) !important;
-  font-size: 13px !important;
+  font-size: 12px !important;
   font-weight: 600 !important;
-  letter-spacing: 0.05em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   margin-bottom: 12px !important;
 }
 
 .VPOutline .outline-link {
   color: var(--vp-c-text-2) !important;
   font-size: 13px !important;
+  font-family: var(--vp-font-family-base) !important;
   transition: color 0.2s;
   line-height: 1.6;
 }
@@ -227,7 +261,7 @@
 }
 
 /* ===========================
-   CONTENT AREA - FULL WIDTH
+   CONTENT AREA
    =========================== */
 
 .VPDoc {
@@ -252,10 +286,11 @@
   margin: 0 !important;
 }
 
+/* Reading column — constrained width for comfortable reading */
 .vp-doc {
-  max-width: 880px;
+  max-width: var(--vp-doc-max-width);
   margin: 0 auto;
-  padding: 32px 40px 96px !important;
+  padding: 40px 40px 96px !important;
 }
 
 @media (max-width: 768px) {
@@ -265,53 +300,60 @@
 }
 
 /* ===========================
-   TYPOGRAPHY
+   TYPOGRAPHY — Editorial Style
    =========================== */
 
 .vp-doc {
   color: var(--vp-c-text-1) !important;
   font-size: 16px !important;
-  line-height: 1.8 !important;
+  line-height: 1.7 !important;
+  font-family: var(--vp-font-family-base) !important;
 }
 
+/* Headings — serif, dignified */
 .vp-doc h1 {
-  font-size: 2.2em !important;
-  line-height: 1.3 !important;
-  margin-top: 1.2em !important;
-  margin-bottom: 0.6em !important;
+  font-size: 2.4em !important;
+  line-height: 1.2 !important;
+  margin-top: 0.8em !important;
+  margin-bottom: 0.5em !important;
   font-weight: 700 !important;
   color: var(--vp-c-heading) !important;
+  font-family: var(--vp-font-family-base) !important;
+  letter-spacing: -0.01em;
 }
 
 .vp-doc h2 {
   font-size: 1.65em !important;
-  line-height: 1.35 !important;
-  margin-top: 1.6em !important;
+  line-height: 1.3 !important;
+  margin-top: 1.8em !important;
   margin-bottom: 0.5em !important;
-  padding-bottom: 0.3em !important;
+  padding-bottom: 0.35em !important;
   font-weight: 600 !important;
   color: var(--vp-c-heading) !important;
+  font-family: var(--vp-font-family-base) !important;
   border-bottom: 1px solid var(--vp-c-divider) !important;
 }
 
 .vp-doc h3 {
-  font-size: 1.35em !important;
-  line-height: 1.4 !important;
+  font-size: 1.3em !important;
+  line-height: 1.35 !important;
   margin-top: 1.4em !important;
   margin-bottom: 0.4em !important;
   font-weight: 600 !important;
   color: var(--vp-c-heading) !important;
+  font-family: var(--vp-font-family-base) !important;
 }
 
 .vp-doc h4,
 .vp-doc h5,
 .vp-doc h6 {
   color: var(--vp-c-heading) !important;
+  font-family: var(--vp-font-family-base) !important;
 }
 
 .vp-doc p {
   font-size: 16px !important;
-  line-height: 1.8 !important;
+  line-height: 1.75 !important;
   margin-bottom: 1.2em !important;
   color: var(--vp-c-text-1) !important;
 }
@@ -319,12 +361,13 @@
 .vp-doc ul,
 .vp-doc ol {
   font-size: 16px !important;
-  line-height: 1.8 !important;
+  line-height: 1.75 !important;
   margin-bottom: 1em !important;
+  padding-left: 1.5em !important;
 }
 
 .vp-doc li {
-  margin-bottom: 0.3em !important;
+  margin-bottom: 0.35em !important;
 }
 
 .vp-doc strong {
@@ -334,7 +377,7 @@
 
 .vp-doc hr {
   border-color: var(--vp-c-divider) !important;
-  margin: 2em 0 !important;
+  margin: 2.5em 0 !important;
 }
 
 /* ===========================
@@ -344,8 +387,8 @@
 .vp-doc a {
   color: var(--vp-c-link) !important;
   text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s;
+  border-bottom: 1px solid rgba(184, 134, 11, 0.25);
+  transition: border-color 0.2s, color 0.2s;
 }
 
 .vp-doc a:hover {
@@ -361,49 +404,48 @@
   background-color: var(--vp-c-code-bg) !important;
   color: var(--vp-c-code-text) !important;
   border-radius: 4px;
-  padding: 2px 7px;
-  font-size: 0.88em;
-  font-family: var(--vp-font-family-mono);
+  padding: 2px 6px;
+  font-size: 0.875em;
+  font-family: var(--vp-font-family-mono) !important;
+  letter-spacing: -0.01em;
 }
 
 /* ===========================
-   CODE BLOCKS - the main fix
+   CODE BLOCKS
    =========================== */
 
-/* Outer container */
 .vp-doc div[class*='language-'] {
   background-color: var(--vp-code-block-bg) !important;
   border: 1px solid var(--vp-code-block-border) !important;
-  border-radius: 10px !important;
+  border-radius: 8px !important;
   margin: 1.5em 0 !important;
   position: relative;
 }
 
-/* The pre element inside */
 .vp-doc div[class*='language-'] pre {
   background-color: transparent !important;
   border: none !important;
   margin: 0 !important;
-  padding: 20px !important;
+  padding: 20px 22px !important;
   border-radius: 0 !important;
 }
 
-/* The code element inside pre */
 .vp-doc div[class*='language-'] code {
   background-color: transparent !important;
   color: #e8e0d0 !important;
   font-size: 13.5px !important;
-  line-height: 1.65 !important;
+  line-height: 1.7 !important;
+  font-family: var(--vp-font-family-mono) !important;
   padding: 0 !important;
 }
 
-/* Force all spans inside code blocks to inherit from parent */
+/* Override Shiki inline styles */
 .vp-doc div[class*='language-'] pre code span {
   color: inherit !important;
   background-color: transparent !important;
 }
 
-/* Syntax highlighting - apply to ALL spans with specific classes */
+/* Syntax highlighting — earthy warm palette */
 .vp-doc div[class*='language-'] .token.keyword,
 .vp-doc div[class*='language-'] .keyword {
   color: #d4a84b !important;
@@ -416,7 +458,7 @@
 
 .vp-doc div[class*='language-'] .token.comment,
 .vp-doc div[class*='language-'] .comment {
-  color: #8a8476 !important;
+  color: #7a7568 !important;
   font-style: italic;
 }
 
@@ -432,7 +474,7 @@
 
 .vp-doc div[class*='language-'] .token.punctuation,
 .vp-doc div[class*='language-'] .punctuation {
-  color: #c4beb0 !important;
+  color: #8a8476 !important;
 }
 
 .vp-doc div[class*='language-'] .token.number,
@@ -447,7 +489,7 @@
 
 .vp-doc div[class*='language-'] .token.operator,
 .vp-doc div[class*='language-'] .operator {
-  color: #c4beb0 !important;
+  color: #8a8476 !important;
 }
 
 .vp-doc div[class*='language-'] .token.property,
@@ -482,59 +524,138 @@
 
 /* Language label */
 .vp-doc div[class*='language-']::before {
-  color: #8a8476 !important;
+  color: #7a7568 !important;
   position: absolute;
   top: 8px;
-  left: 16px;
+  right: 16px;
   font-size: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
 }
 
 /* Copy button */
 .vp-doc .copy-button {
-  color: #8a8476 !important;
+  color: #7a7568 !important;
   border-color: var(--vp-code-block-border) !important;
   background-color: transparent !important;
+  opacity: 0.6;
+  transition: opacity 0.2s, color 0.2s;
 }
 
 .vp-doc .copy-button:hover {
   color: var(--vp-c-accent) !important;
+  opacity: 1;
 }
 
 /* ===========================
-   TABLES
+   TABLES — "Airy" editorial style
    =========================== */
 
 .vp-doc table {
   width: 100% !important;
   border-collapse: collapse !important;
   margin: 1.5em 0 !important;
-  border-radius: 8px !important;
-  overflow: hidden;
-  border: 1px solid var(--vp-c-divider) !important;
   font-size: 15px !important;
+  line-height: 1.6 !important;
+  /* No outer border — airy */
+  border: none !important;
 }
 
 .vp-doc thead th {
-  background-color: var(--vp-c-bg-nav) !important;
+  background-color: var(--vp-c-border) !important;
   color: var(--vp-c-heading) !important;
   font-weight: 600 !important;
-  padding: 12px 16px !important;
-  border: 1px solid var(--vp-c-divider) !important;
+  font-size: 13px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 10px 14px !important;
   text-align: left !important;
+  /* No borders between header cells */
+  border: none !important;
+  border-bottom: 2px solid #d4cfc5 !important;
 }
 
 .vp-doc tbody td {
-  padding: 10px 16px !important;
-  border: 1px solid var(--vp-c-divider) !important;
+  padding: 12px 14px !important;
   color: var(--vp-c-text-1) !important;
+  /* Horizontal hairline only, no vertical lines */
+  border: none !important;
+  border-bottom: 1px solid var(--vp-c-divider) !important;
+  vertical-align: top !important;
 }
 
-.vp-doc tbody tr:nth-child(even) {
-  background-color: #faf7f0;
+.vp-doc tbody tr:last-child td {
+  border-bottom: none !important;
 }
 
 .vp-doc tbody tr:hover {
-  background-color: #f5f0e8;
+  background-color: rgba(201, 164, 74, 0.04);
+}
+
+/* ===========================
+   CALLOUTS / CUSTOM BLOCKS
+   Refined: left accent border + subtle bg
+   =========================== */
+
+.vp-doc .custom-block {
+  border-radius: 6px !important;
+  padding: 14px 18px !important;
+  padding-left: 16px !important;
+  margin: 1.5em 0 !important;
+  border: none !important;
+  border-left: 3px solid !important;
+  font-size: 14.5px !important;
+  line-height: 1.65 !important;
+}
+
+.vp-doc .custom-block .custom-block-title {
+  color: var(--vp-c-heading) !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  margin-bottom: 6px !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.vp-doc .custom-block p {
+  font-size: 14.5px !important;
+  line-height: 1.65 !important;
+  margin: 0.3em 0 !important;
+}
+
+/* Tip / Info — muted blue */
+.vp-doc .custom-block.tip {
+  border-left-color: var(--vp-c-muted-blue) !important;
+  background-color: var(--vp-c-muted-blue-soft) !important;
+  color: #3a3528 !important;
+}
+
+.vp-doc .custom-block.tip .custom-block-title {
+  color: var(--vp-c-muted-blue) !important;
+}
+
+/* Warning — terracotta */
+.vp-doc .custom-block.warning,
+.vp-doc .custom-block.caution {
+  border-left-color: var(--vp-c-terracotta) !important;
+  background-color: var(--vp-c-terracotta-soft) !important;
+  color: #3a3528 !important;
+}
+
+.vp-doc .custom-block.warning .custom-block-title,
+.vp-doc .custom-block.caution .custom-block-title {
+  color: var(--vp-c-terracotta) !important;
+}
+
+/* Danger — warm red */
+.vp-doc .custom-block.danger {
+  border-left-color: #c44a4a !important;
+  background-color: rgba(196, 74, 74, 0.06) !important;
+  color: #3a3528 !important;
+}
+
+.vp-doc .custom-block.danger .custom-block-title {
+  color: #c44a4a !important;
 }
 
 /* ===========================
@@ -542,63 +663,43 @@
    =========================== */
 
 .vp-doc blockquote {
-  border-left: 4px solid var(--vp-c-accent) !important;
-  background-color: #faf6ee !important;
+  border-left: 3px solid var(--vp-c-accent) !important;
+  background-color: rgba(201, 164, 74, 0.05) !important;
   color: var(--vp-c-text-2) !important;
-  border-radius: 0 8px 8px 0 !important;
-  padding: 12px 20px !important;
-  margin: 1.2em 0 !important;
+  border-radius: 0 6px 6px 0 !important;
+  padding: 12px 18px !important;
+  margin: 1.5em 0 !important;
   font-style: normal !important;
 }
 
-/* ===========================
-   CUSTOM BLOCKS
-   =========================== */
-
-.vp-doc .custom-block {
-  border-radius: 8px !important;
-  padding: 16px 20px !important;
-  margin: 1.2em 0 !important;
-}
-
-.vp-doc .custom-block .custom-block-title {
-  color: var(--vp-c-heading) !important;
-  font-weight: 600 !important;
-  font-size: 14px !important;
-  margin-bottom: 8px !important;
-}
-
-.vp-doc .custom-block p {
-  font-size: 15px !important;
-  line-height: 1.7 !important;
-  margin: 0.4em 0 !important;
+.vp-doc blockquote p {
+  margin-bottom: 0.5em !important;
 }
 
 /* ===========================
-   HOME PAGE - FIX OVERLAP
+   HOME PAGE
    =========================== */
 
 .VPHome {
   background-color: var(--vp-c-bg) !important;
 }
 
-/* Hero - fix overlap issue */
 .VPHero {
-  padding: 64px 24px 48px !important;
+  padding: 80px 24px 56px !important;
 }
 
 .VPHero .container {
-  max-width: 800px;
+  max-width: 720px;
 }
 
-/* Name and text must NOT overlap */
 .VPHero .name {
   color: var(--vp-c-heading) !important;
-  font-size: 42px !important;
+  font-size: 48px !important;
   font-weight: 700 !important;
+  font-family: var(--vp-font-family-base) !important;
   letter-spacing: -0.02em;
   line-height: 1.15 !important;
-  margin-bottom: 12px !important;
+  margin-bottom: 14px !important;
   display: block !important;
   position: relative !important;
 }
@@ -608,6 +709,7 @@
   font-size: 18px !important;
   line-height: 1.6 !important;
   font-weight: 400;
+  font-family: var(--vp-font-family-base) !important;
   display: block !important;
   margin-bottom: 8px !important;
 }
@@ -616,13 +718,14 @@
   color: var(--vp-c-text-3) !important;
   font-size: 15px !important;
   line-height: 1.6 !important;
+  font-family: var(--vp-font-family-base) !important;
   margin-top: 8px !important;
   display: block !important;
 }
 
 /* Hero actions */
 .VPHero .actions {
-  margin-top: 28px !important;
+  margin-top: 32px !important;
   gap: 14px !important;
   display: flex !important;
   flex-wrap: wrap !important;
@@ -635,6 +738,7 @@
   font-weight: 500 !important;
   padding: 10px 28px !important;
   font-size: 15px !important;
+  font-family: var(--vp-font-family-base) !important;
   transition: all 0.2s !important;
   display: inline-block !important;
 }
@@ -648,7 +752,7 @@
 .VPButton.brand:hover {
   background-color: #b8923e !important;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(201, 164, 74, 0.3);
+  box-shadow: 0 4px 12px rgba(201, 164, 74, 0.25);
 }
 
 .VPButton.alt {
@@ -659,21 +763,21 @@
 
 .VPButton.alt:hover {
   border-color: var(--vp-c-accent) !important;
-  background-color: #faf6ee !important;
+  background-color: rgba(201, 164, 74, 0.06) !important;
 }
 
 /* Feature cards */
 .VPFeature {
-  background-color: #faf7f0 !important;
+  background-color: rgba(201, 164, 74, 0.04) !important;
   border: 1px solid var(--vp-c-divider) !important;
-  border-radius: 12px !important;
-  padding: 24px !important;
+  border-radius: 10px !important;
+  padding: 28px !important;
   transition: all 0.25s ease !important;
 }
 
 .VPFeature:hover {
   border-color: var(--vp-c-accent) !important;
-  box-shadow: 0 4px 16px rgba(201, 164, 74, 0.12) !important;
+  box-shadow: 0 4px 16px rgba(201, 164, 74, 0.08) !important;
   transform: translateY(-2px);
 }
 
@@ -683,20 +787,22 @@
 
 .VPFeature .icon {
   font-size: 32px !important;
-  margin-bottom: 8px !important;
+  margin-bottom: 10px !important;
 }
 
 .VPFeature .title {
   color: var(--vp-c-heading) !important;
   font-size: 17px !important;
   font-weight: 600 !important;
+  font-family: var(--vp-font-family-base) !important;
   margin-bottom: 8px !important;
 }
 
 .VPFeature .details {
   color: var(--vp-c-text-2) !important;
   font-size: 14px !important;
-  line-height: 1.6 !important;
+  line-height: 1.65 !important;
+  font-family: var(--vp-font-family-base) !important;
 }
 
 /* ===========================
@@ -704,16 +810,16 @@
    =========================== */
 
 .vp-doc .pager-link {
-  background-color: #faf7f0 !important;
+  background-color: rgba(201, 164, 74, 0.04) !important;
   border: 1px solid var(--vp-c-divider) !important;
   border-radius: 8px !important;
-  padding: 12px 16px !important;
+  padding: 14px 18px !important;
   transition: all 0.2s !important;
 }
 
 .vp-doc .pager-link:hover {
   border-color: var(--vp-c-accent) !important;
-  background-color: #faf6ee !important;
+  background-color: rgba(201, 164, 74, 0.06) !important;
 }
 
 .vp-doc .pager-link .title {
@@ -723,6 +829,79 @@
 
 .vp-doc .pager-link .sub-title {
   color: var(--vp-c-text-2) !important;
+}
+
+/* ===========================
+   DOC FOOTER (edit link, last updated, feedback)
+   =========================== */
+
+.VPDocFooter {
+  border-top: 1px solid var(--vp-c-divider) !important;
+}
+
+.VPDocFooter .edit-link {
+  color: var(--vp-c-text-3) !important;
+}
+
+.VPDocFooter .edit-link a {
+  color: var(--vp-c-text-3) !important;
+  border-bottom: none !important;
+}
+
+.VPDocFooter .edit-link a:hover {
+  color: var(--vp-c-link) !important;
+}
+
+.VPDocFooter .last-updated {
+  color: var(--vp-c-text-3) !important;
+}
+
+/* ===========================
+   FEEDBACK WIDGET
+   =========================== */
+
+.feedback-section {
+  margin-top: 3rem !important;
+  padding-top: 1.5rem !important;
+  border-top: 1px solid var(--vp-c-divider);
+  text-align: center;
+}
+
+.feedback-title {
+  font-size: 0.85rem !important;
+  color: var(--vp-c-text-3) !important;
+  margin-bottom: 0.75rem !important;
+  font-family: var(--vp-font-family-base) !important;
+}
+
+.feedback-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.feedback-btn {
+  padding: 0.45rem 1.2rem !important;
+  border: 1px solid var(--vp-c-border) !important;
+  border-radius: 6px !important;
+  background: var(--vp-c-bg-soft) !important;
+  color: var(--vp-c-text-2) !important;
+  font-size: 0.85rem !important;
+  font-family: var(--vp-font-family-base) !important;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.feedback-btn:hover {
+  border-color: var(--vp-c-accent) !important;
+  color: var(--vp-c-accent) !important;
+  background: transparent !important;
+}
+
+.feedback-hint {
+  font-size: 0.7rem !important;
+  color: var(--vp-c-text-3) !important;
+  margin-top: 0.5rem !important;
 }
 
 /* ===========================
@@ -739,6 +918,7 @@
 .VPFooter .copyright {
   color: var(--vp-c-text-3) !important;
   font-size: 13px !important;
+  font-family: var(--vp-font-family-base) !important;
 }
 
 /* ===========================
@@ -747,7 +927,7 @@
 
 .vp-doc img {
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
   margin: 1.5em 0;
   max-width: 100% !important;
 }
@@ -767,7 +947,7 @@
 
 @media (max-width: 960px) {
   .VPHero .name {
-    font-size: 34px !important;
+    font-size: 38px !important;
   }
   .VPHero .text {
     font-size: 16px !important;
@@ -776,10 +956,10 @@
 
 @media (max-width: 768px) {
   .vp-doc h1 {
-    font-size: 1.8em !important;
+    font-size: 1.9em !important;
   }
   .vp-doc h2 {
-    font-size: 1.45em !important;
+    font-size: 1.4em !important;
   }
   .vp-doc p,
   .vp-doc ul,
@@ -787,10 +967,10 @@
     font-size: 15px !important;
   }
   .VPHero {
-    padding: 40px 16px 32px !important;
+    padding: 48px 16px 36px !important;
   }
   .VPHero .name {
-    font-size: 30px !important;
+    font-size: 32px !important;
   }
   .VPHero .actions {
     flex-direction: column !important;
