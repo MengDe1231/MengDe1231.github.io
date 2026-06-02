@@ -12,6 +12,8 @@ export default defineConfig({
     ['meta', { name: 'author', content: 'MengDe' }],
   ],
 
+  lastUpdated: true,
+
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
@@ -20,6 +22,11 @@ export default defineConfig({
       { text: '笔记', link: '/notes/' },
       { text: '关于', link: '/about' },
     ],
+
+    editLink: {
+      pattern: 'https://github.com/MengDe1231/mengde-blog/edit/main/docs/:path',
+      text: '在 GitHub 上编辑此页',
+    },
 
     sidebar: {
       '/rudder/': [
@@ -72,6 +79,21 @@ export default defineConfig({
 
     search: {
       provider: 'local',
+      options: {
+        locales: {
+          root: {
+            translations: {
+              button: { buttonText: '搜索文档', buttonAriaLabel: '搜索文档' },
+              modal: { noResultsText: '无法找到相关结果', displayFooter: true, footer: { selectText: '选择', navigateText: '切换' } },
+            },
+          },
+        },
+      },
+    },
+
+    docFooter: {
+      prev: '上一页',
+      next: '下一页',
     },
 
     footer: {
