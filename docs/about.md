@@ -19,9 +19,6 @@
 
 ### 关于本站
 
-本站基于 VitePress + GitHub Pages 构建，记录个人开源项目文档、技术博客和学习笔记。
-
-- 源码: [github.com/MengDe1231/mengde-blog](https://github.com/MengDe1231/mengde-blog)
 - 主题: 自定义暖色调牛皮纸风格
 
 ### 联系方式
