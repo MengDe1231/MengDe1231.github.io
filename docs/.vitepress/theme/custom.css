@@ -1091,10 +1091,10 @@ iframe[id*="feedback"] {
    ============================================ */
 
 .doc-width-toggle-wrapper {
-  position: absolute;
-  top: 12px;
-  right: 24px;
-  z-index: 5;
+  position: fixed;
+  top: 14px;
+  right: 16px;
+  z-index: 101 !important;
 }
 
 /* --- Full-width mode: hide right TOC, expand content area --- */
@@ -1104,19 +1104,19 @@ body.full-width-mode .VPSidebar.right {
   display: none !important;
 }
 
-/* Expand content area to fill the freed space */
-body.full-width-mode .VPDoc .content-container {
-  max-width: 100% !important;
-  width: 100% !important;
-}
-
+/* Expand all VitePress content containers to full width */
+body.full-width-mode .VPDoc .content-container,
 body.full-width-mode .VPDoc .content {
   max-width: 100% !important;
   width: 100% !important;
 }
 
+body.full-width-mode .VPDoc .container {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
 /* Keep text (headings, paragraphs, lists) at comfortable reading width */
-body.full-width-mode .vp-doc > :not(pre):not(table):not(.custom-block):not(div):not(.vp-code-group):not(.language-),
 body.full-width-mode .vp-doc > h1,
 body.full-width-mode .vp-doc > h2,
 body.full-width-mode .vp-doc > h3,
@@ -1127,9 +1127,9 @@ body.full-width-mode .vp-doc > p,
 body.full-width-mode .vp-doc > ul,
 body.full-width-mode .vp-doc > ol,
 body.full-width-mode .vp-doc > blockquote {
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 800px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 /* Let code blocks, tables, callouts, code groups fill full width */
@@ -1143,7 +1143,7 @@ body.full-width-mode .vp-doc table {
   box-sizing: border-box;
 }
 
-/* Code blocks: ensure scroll works on overflow */
+/* Code blocks: ensure they fill full width */
 body.full-width-mode .vp-doc div[class*='language-'] {
   width: 100% !important;
 }
