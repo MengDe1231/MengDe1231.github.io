@@ -1097,20 +1097,12 @@ body.full-width-mode .VPDocAside {
   display: none !important;
 }
 
-/* Expand content area to fill the freed space */
-body.full-width-mode .VPDoc:not(.has-aside) .container {
+/* Expand the doc container to fill full width */
+body.full-width-mode .vp-doc {
   max-width: 100% !important;
 }
 
-body.full-width-mode .VPDoc:not(.has-aside) .content {
-  max-width: 100% !important;
-}
-
-body.full-width-mode .VPDoc .content-container {
-  max-width: 100% !important;
-}
-
-/* Keep text (headings, paragraphs, lists) at comfortable reading width */
+/* Keep text elements at comfortable reading width */
 body.full-width-mode .vp-doc > h1,
 body.full-width-mode .vp-doc > h2,
 body.full-width-mode .vp-doc > h3,
@@ -1126,27 +1118,19 @@ body.full-width-mode .vp-doc > blockquote {
   margin-right: auto !important;
 }
 
-/* Let code blocks, tables, callouts, code groups fill full width */
+/* Let wide elements (code, tables, callouts) fill full width */
 body.full-width-mode .vp-doc pre,
 body.full-width-mode .vp-doc .vp-code-group,
 body.full-width-mode .vp-doc .vp-tabs,
 body.full-width-mode .vp-doc .custom-block,
-body.full-width-mode .vp-doc table {
+body.full-width-mode .vp-doc table,
+body.full-width-mode .vp-doc div[class*='language-'] {
   max-width: none !important;
   width: 100% !important;
   box-sizing: border-box;
 }
 
-/* Code blocks: ensure they fill full width */
-body.full-width-mode .vp-doc div[class*='language-'] {
-  width: 100% !important;
-}
-
-body.full-width-mode .vp-doc div[class*='language-'] pre {
-  width: 100% !important;
-}
-
-/* Tables: use auto layout to utilize horizontal space */
+/* Tables: use auto layout for better space utilization */
 body.full-width-mode .vp-doc table {
   display: table !important;
   table-layout: auto !important;
