@@ -1097,36 +1097,68 @@ iframe[id*="feedback"] {
   z-index: 5;
 }
 
-/* Full-width mode: hide aside (right TOC) and expand content */
+/* --- Full-width mode: hide right TOC, expand content area --- */
+
+/* Hide the right sidebar (TOC) */
 body.full-width-mode .VPSidebar.right {
   display: none !important;
 }
 
-body.full-width-mode .VPDoc .content {
-  max-width: none !important;
+/* Expand content area to fill the freed space */
+body.full-width-mode .VPDoc .content-container {
+  max-width: 100% !important;
   width: 100% !important;
 }
 
-body.full-width-mode .VPDoc .container {
-  max-width: none !important;
+body.full-width-mode .VPDoc .content {
+  max-width: 100% !important;
+  width: 100% !important;
 }
 
-body.full-width-mode .VPDoc .content-container {
-  max-width: none !important;
+/* Keep text (headings, paragraphs, lists) at comfortable reading width */
+body.full-width-mode .vp-doc > :not(pre):not(table):not(.custom-block):not(div):not(.vp-code-group):not(.language-),
+body.full-width-mode .vp-doc > h1,
+body.full-width-mode .vp-doc > h2,
+body.full-width-mode .vp-doc > h3,
+body.full-width-mode .vp-doc > h4,
+body.full-width-mode .vp-doc > h5,
+body.full-width-mode .vp-doc > h6,
+body.full-width-mode .vp-doc > p,
+body.full-width-mode .vp-doc > ul,
+body.full-width-mode .vp-doc > ol,
+body.full-width-mode .vp-doc > blockquote {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-body.full-width-mode .vp-code-group,
-body.full-width-mode .vp-tabs {
-  max-width: none;
-}
-
+/* Let code blocks, tables, callouts, code groups fill full width */
+body.full-width-mode .vp-doc pre,
+body.full-width-mode .vp-doc .vp-code-group,
+body.full-width-mode .vp-doc .vp-tabs,
+body.full-width-mode .vp-doc .custom-block,
 body.full-width-mode .vp-doc table {
-  display: table;
-  width: 100%;
-  table-layout: auto;
+  max-width: none !important;
+  width: 100% !important;
+  box-sizing: border-box;
 }
 
-/* Hide toggle on mobile (full-width not needed) */
+/* Code blocks: ensure scroll works on overflow */
+body.full-width-mode .vp-doc div[class*='language-'] {
+  width: 100% !important;
+}
+
+body.full-width-mode .vp-doc div[class*='language-'] pre {
+  width: 100% !important;
+}
+
+/* Tables: use auto layout to utilize horizontal space */
+body.full-width-mode .vp-doc table {
+  display: table !important;
+  table-layout: auto !important;
+}
+
+/* Hide toggle on mobile */
 @media (max-width: 768px) {
   .doc-width-toggle-wrapper {
     display: none !important;
