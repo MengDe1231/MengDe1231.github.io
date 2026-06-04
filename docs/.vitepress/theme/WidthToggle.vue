@@ -10,25 +10,32 @@ function toggle() {
 </script>
 
 <template>
-  <button
-    class="full-width-toggle"
-    :class="{ active: isFullWidth }"
-    @click="toggle"
-    :title="isFullWidth ? '恢复默认宽度' : '切换全宽模式'"
-  >
-    <svg v-if="!isFullWidth" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M4 4h16v16H4z" />
-      <path d="M9 4v16M15 4v16" stroke-dasharray="2 2" />
-    </svg>
-    <svg v-else viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M4 4h16v16H4z" />
-      <path d="M9 4v16" />
-    </svg>
-    <span>{{ isFullWidth ? '恢复' : '全宽' }}</span>
-  </button>
+  <div class="width-toggle-inline">
+    <button
+      class="full-width-toggle"
+      :class="{ active: isFullWidth }"
+      @click="toggle"
+    >
+      <svg v-if="!isFullWidth" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 4h16v16H4z" />
+        <path d="M9 4v16M15 4v16" stroke-dasharray="2 2" />
+      </svg>
+      <svg v-else viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 4h16v16H4z" />
+        <path d="M9 4v16" />
+      </svg>
+      <span>{{ isFullWidth ? '恢复' : '全宽' }}</span>
+    </button>
+  </div>
 </template>
 
 <style scoped>
+.width-toggle-inline {
+  display: flex;
+  justify-content: flex-end;
+  padding: 4px 0 12px;
+}
+
 .full-width-toggle {
   display: flex;
   align-items: center;

@@ -1090,30 +1090,24 @@ iframe[id*="feedback"] {
    Full-Width Toggle
    ============================================ */
 
-.doc-width-toggle-wrapper {
-  position: fixed;
-  top: 14px;
-  right: 16px;
-  z-index: 101 !important;
-}
-
 /* --- Full-width mode: hide right TOC, expand content area --- */
 
 /* Hide the right sidebar (TOC) */
-body.full-width-mode .VPSidebar.right {
+body.full-width-mode .VPDocAside {
   display: none !important;
 }
 
-/* Expand all VitePress content containers to full width */
-body.full-width-mode .VPDoc .content-container,
-body.full-width-mode .VPDoc .content {
+/* Expand content area to fill the freed space */
+body.full-width-mode .VPDoc:not(.has-aside) .container {
   max-width: 100% !important;
-  width: 100% !important;
 }
 
-body.full-width-mode .VPDoc .container {
+body.full-width-mode .VPDoc:not(.has-aside) .content {
   max-width: 100% !important;
-  width: 100% !important;
+}
+
+body.full-width-mode .VPDoc .content-container {
+  max-width: 100% !important;
 }
 
 /* Keep text (headings, paragraphs, lists) at comfortable reading width */
@@ -1156,11 +1150,4 @@ body.full-width-mode .vp-doc div[class*='language-'] pre {
 body.full-width-mode .vp-doc table {
   display: table !important;
   table-layout: auto !important;
-}
-
-/* Hide toggle on mobile */
-@media (max-width: 768px) {
-  .doc-width-toggle-wrapper {
-    display: none !important;
-  }
 }
