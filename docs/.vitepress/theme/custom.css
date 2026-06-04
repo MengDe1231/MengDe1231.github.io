@@ -1085,3 +1085,50 @@ iframe[id*="feedback"] {
     font-size: 15px !important;
   }
 }
+
+/* ============================================
+   Full-Width Toggle
+   ============================================ */
+
+.doc-width-toggle-wrapper {
+  position: absolute;
+  top: 12px;
+  right: 24px;
+  z-index: 5;
+}
+
+/* Full-width mode: hide aside (right TOC) and expand content */
+body.full-width-mode .VPSidebar.right {
+  display: none !important;
+}
+
+body.full-width-mode .VPDoc .content {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+body.full-width-mode .VPDoc .container {
+  max-width: none !important;
+}
+
+body.full-width-mode .VPDoc .content-container {
+  max-width: none !important;
+}
+
+body.full-width-mode .vp-code-group,
+body.full-width-mode .vp-tabs {
+  max-width: none;
+}
+
+body.full-width-mode .vp-doc table {
+  display: table;
+  width: 100%;
+  table-layout: auto;
+}
+
+/* Hide toggle on mobile (full-width not needed) */
+@media (max-width: 768px) {
+  .doc-width-toggle-wrapper {
+    display: none !important;
+  }
+}
