@@ -32,6 +32,16 @@ export default defineConfig({
     },
 
     sidebar: {
+      '/notes/multi-agent/': [
+        {
+          text: '多 Agent 任务分发与协作',
+          items: [
+            { text: '概览', link: '/notes/multi-agent/' },
+            { text: '进程内协作方案', link: '/notes/multi-agent/proceed' },
+            { text: '分布式任务分发方案', link: '/notes/multi-agent/distributed' },
+          ],
+        },
+      ],
       '/rudder/': [
         {
           text: '入门',
