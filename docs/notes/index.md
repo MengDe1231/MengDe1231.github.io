@@ -5,9 +5,11 @@
 ## 笔记列表
 
 - [Claude Code 从入门到精通](/notes/claude-code) — 面向工程师与产品经理的AI编程完全指南
+- [多 Agent 任务分发与协作](/notes/multi-agent/) — 进程内协作与分布式任务分发架构（Spring AI Alibaba + RocketMQ）
 
 ## 分类
 
 - **AI 编程** - AI 辅助开发工具使用笔记
+- **AI 架构** - 多 Agent 协作、任务分发架构设计
 - **Java** - Java 相关学习笔记
 - **前端** - 前端技术学习笔记
