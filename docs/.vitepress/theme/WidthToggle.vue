@@ -34,7 +34,7 @@ function toggle() {
   position: fixed;
   bottom: 80px;
   right: 24px;
-  z-index: 200;
+  z-index: 50;
   display: flex;
   align-items: center;
   gap: 5px;

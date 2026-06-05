@@ -1092,12 +1092,30 @@ iframe[id*="feedback"] {
 
 /* --- Full-width mode: hide right TOC, expand content area --- */
 
-/* Hide the right sidebar (TOC) */
+/* Hide the right sidebar (TOC) without layout reflow */
 body.full-width-mode .VPDocAside {
-  display: none !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  flex: 0 !important;
 }
 
-/* Expand the doc container to fill full width */
+/* Expand the doc content containers */
+body.full-width-mode .VPDoc .container {
+  max-width: 100% !important;
+}
+
+body.full-width-mode .VPDoc .content {
+  max-width: 100% !important;
+  padding-right: 32px !important;
+}
+
+body.full-width-mode .VPDoc .content-container {
+  max-width: 100% !important;
+}
+
 body.full-width-mode .vp-doc {
   max-width: 100% !important;
 }
