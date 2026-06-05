@@ -87,10 +87,15 @@
 }
 
 /* ===========================
-   NAVIGATION
+   NAVIGATION — always fixed
    =========================== */
 
 .VPNav {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   border-bottom: 1px solid var(--vp-c-divider);
 }
 
